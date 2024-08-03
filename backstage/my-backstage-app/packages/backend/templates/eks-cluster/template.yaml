@@ -79,8 +79,8 @@ spec:
       action: github:actions:dispatch
       input:
         workflowId: manage-eks-cluster.yml
-        repoUrl: 'github.com?repo=aws-eks&owner=samgabrail'
-        branchOrTagName: 'main'
+        repoUrl: 'github.com?repo=vcluster-demos&owner=rayl15'
+        branchOrTagName: 'master'
         workflowInputs:
           clusterName: ${{ parameters.clusterName }}
           awsRegion: ${{ parameters.region }}
