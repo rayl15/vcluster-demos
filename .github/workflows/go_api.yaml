@@ -42,10 +42,10 @@ jobs:
 
     - name: Build and Push Docker Image to Docker Hub
       run: |
-        docker build -t ${{ secrets.DOCKER_USERNAME }}/${{ github.event.inputs.imageName }}:${{ github.run_id }} .
-        docker tag ${{ secrets.DOCKER_USERNAME }}/${{ github.event.inputs.imageName }}:${{ github.run_id }} ${{ secrets.DOCKER_USERNAME }}/${{ github.event.inputs.imageName }}:latest
-        docker push ${{ secrets.DOCKER_USERNAME }}/${{ github.event.inputs.imageName }}:${{ github.run_id }}
-        docker push ${{ secrets.DOCKER_USERNAME }}/${{ github.event.inputs.imageName }}:latest
+        docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/${{ github.event.inputs.imageName }}:${{ github.run_id }} .
+        docker tag ${{ secrets.DOCKERHUB_USERNAME }}/${{ github.event.inputs.imageName }}:${{ github.run_id }} ${{ secrets.DOCKERHUB_USERNAME }}/${{ github.event.inputs.imageName }}:latest
+        docker push ${{ secrets.DOCKERHUB_USERNAME }}/${{ github.event.inputs.imageName }}:${{ github.run_id }}
+        docker push ${{ secrets.DOCKERHUB_USERNAME }}/${{ github.event.inputs.imageName }}:latest
       
     - name: Checkout Code
       uses: actions/checkout@v2
