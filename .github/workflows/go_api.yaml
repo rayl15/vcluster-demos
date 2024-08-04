@@ -33,10 +33,15 @@ jobs:
         repository: ${{ env.CLEANED_URL }}
         token: ${{ secrets.MYGITHUB_TOKEN }}
         fetch-depth: 1
+        
+    - name: Login to Docker Hub
+      uses: docker/login-action@v3
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_PASSWORD }}     
 
     - name: Build and Push Docker Image to Docker Hub
       run: |
-        echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
         docker build -t ${{ secrets.DOCKER_USERNAME }}/${{ github.event.inputs.imageName }}:${{ github.run_id }} .
         docker tag ${{ secrets.DOCKER_USERNAME }}/${{ github.event.inputs.imageName }}:${{ github.run_id }} ${{ secrets.DOCKER_USERNAME }}/${{ github.event.inputs.imageName }}:latest
         docker push ${{ secrets.DOCKER_USERNAME }}/${{ github.event.inputs.imageName }}:${{ github.run_id }}
