@@ -58,8 +58,8 @@ spec:
       action: github:actions:dispatch
       input:
         workflowId: go_api.yaml
-        repoUrl: 'github.com?repo=crossplane-gke&owner=samgabrail'
-        branchOrTagName: 'main'
+        repoUrl: 'github.com?repo=vcluster-demos&owner=rayl15'
+        branchOrTagName: 'master'
         workflowInputs:
           imageName: ${{ parameters.imageName }}
           apiName: ${{ parameters.apiName }}
