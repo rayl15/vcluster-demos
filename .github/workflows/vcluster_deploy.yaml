@@ -69,8 +69,8 @@ jobs:
     - name: Register Repository in Argo CD
       run: argocd repo add ${{ github.event.inputs.repoURLforArgo }} --username samgabrail --password ${{ secrets.MYGITHUB_TOKEN }}
 
-    - name: Get DNS Ready
-      run: backstage/my-backstage-app/packages/backend/templates/vcluster/content/vcluster_scripts/setdns.sh ${{ github.event.inputs.clusterName }} ${{ secrets.CF_ZONE_ID }} ${{ secrets.CF_API_TOKEN }} ${{ secrets.TARGET_DOMAIN }} ${{ github.event.inputs.hostClusterType }}
+   # - name: Get DNS Ready
+   #  run: backstage/my-backstage-app/packages/backend/templates/vcluster/content/vcluster_scripts/setdns.sh ${{ github.event.inputs.clusterName }} ${{ secrets.CF_ZONE_ID }} ${{ secrets.CF_API_TOKEN }} ${{ secrets.TARGET_DOMAIN }} ${{ github.event.inputs.hostClusterType }}
 
     - name: Deploy vcluster
       run: |
