@@ -7,7 +7,7 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: HostSNI(`<placeholder>.tekanaid.com`)
+    - match: HostSNI(`<placeholder>.arc-saas.net`)
       services:
         - name: <placeholder>
           port: 443
